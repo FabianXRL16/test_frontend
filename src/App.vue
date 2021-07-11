@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="w-full bg-gray-800">
+    <header-marvel class="ad" />
+    <div class="cont">
+      <div>a</div>
+      <content-marvel />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderMarvel from "./components/global/HeaderMarvel.vue";
+import ContentMarvel from "./components/global/ContentMarvel.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HeaderMarvel,
+    ContentMarvel,
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.ad{
+  z-index: 10;
+}
+.cont{
+  display: grid;
+  grid-auto-rows: 4rem 1fr;
 }
 </style>
