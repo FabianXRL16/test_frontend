@@ -1,6 +1,6 @@
 <template>
   <div>
-    <card />
+    <card :active="active" />
   </div>
 </template>
 
@@ -11,7 +11,9 @@ export default {
   components: {
     Card,
   },
-  props: {},
+  props: {
+    active: Boolean
+  },
 };
 </script>
 

@@ -26,7 +26,7 @@
       >
       <div class="flex justify-between pt-4">
         <span class="text-blue-600">13/12/1998</span>
-        <btn :text="'Editar'" />
+        <btn v-if="active" :text="'Editar'" />
       </div>
     </div>
   </div>
@@ -36,7 +36,9 @@
 import Btn from '../buttons/BtnBase.vue'
 export default {
   name: "Card",
-  props: {},
+  props: {
+    active: Boolean
+  },
   components:{
     Btn
   },

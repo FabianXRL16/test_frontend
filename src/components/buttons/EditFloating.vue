@@ -1,6 +1,6 @@
 <template>
   <button
-    @click="ok = !ok"
+    @click="editsActiveValue()"
     class="transform hover:scale-110
         motion-reduce:transform-none h-16 w-16 rounded-full
         fixed right-4 bottom-6 sm:right-24 sm:bottom-8
@@ -15,13 +15,34 @@
 <script>
 export default {
   name: "Edit",
-  props: {},
+  props: {
+    value:{
+      type: Boolean,
+      require: false,
+      default: true
+    }
+  },
   data() {
     return {
       ok: true,
     };
   },
-  methods: {},
+  computed:{
+    editActiveVal: {
+      get(){
+        return this.value
+      },
+      set(value){
+        this.$emit("input",value)
+      }
+    },
+  },
+  methods: {
+    editsActiveValue(){
+      this.ok = !this.ok
+      this.editActiveVal = !this.ok
+    }
+  },
 };
 </script>
 
