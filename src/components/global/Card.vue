@@ -10,15 +10,15 @@
       alt=""
     />
     <div
-      class="item__info md:bg-gradient-to-t md:from-gray-300 md:to-gray-300
+      class="item__info bg-gradient-to-t from-gray-900 to-transparent md:bg-gradient-to-t md:from-gray-300 md:to-gray-300
               flex flex-col justify-between p-4
               pt-14 pb-8 md:p-6 md:rounded-r-2xl "
     >
       <span
-        class="md:text-gray-700 text-3xl font-semibold mb-4"
+        class="text-gray-900 md:text-gray-700 text-3xl font-semibold mb-4"
         >Capitán América</span
       >
-      <span class="md:text-gray-700 text-gray-300">
+      <span class="md:text-gray-700 text-gray-300" :class="isMobile ? 'shadow' : ' '">
         Capitán Américd asd a sd as d asd as dassssssssssss asdas dddddasdasdas
         asdasdasd a sdasdaa sASas da sd asd as d asd a d as das dasd as da fg df  ht h  dgds fsdgdfg dfg df g dfg df g dfg
         sdf sd f sdf sd fs df sdfs df sd f sd fsd g df h fg hj fg h dfgh df h s dfg wrtrhtrh rt hrt h rth
@@ -38,10 +38,18 @@
 export default {
   name: "Card",
   props: {},
+  computed:{
+    isMobile(){
+      return window.innerWidth <= 396
+    }
+  }
 };
 </script>
 
 <style scoped>
+.shadow{
+  text-shadow: 1px 1px 10px #1F2937;
+}
 @media (max-width: 768px) {
   .item {
     background-image: url("https://depor.com/resizer/0zkaQJz8PXH8P7DubaMv747oKvQ=/1200x1200/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/YRDRN2AWWNATVHH3CPLXR4FUPA.jpg");
