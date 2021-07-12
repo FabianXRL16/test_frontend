@@ -35,19 +35,13 @@ let json = {
   },
 };
 
-
-function getResult () {
-  let result = {};
-    for (var name in json.data) {
-        let key = json.data[name].over_carrier_service_id;
-        let value = [values[key].carrier, values[key].service];
-        json.data[name].over_carrier_service_id = value;
-
-        key = json.data[name].under_carrier_service_id;
-        value = [values[key].carrier, values[key].service];
-        json.data[name].under_carrier_service_id = value;
-    }
- return result
+function getResult() {
+  let result = new Object();
+  for (var pos in json.data) {
+    let id = json.data[pos].over_carrier_service_id;
+    result[pos] = { limit: json.data[pos].limit, over: values[id] };
+  }
+  return result;
 }
 
-getResult()
+const result = getResult();
