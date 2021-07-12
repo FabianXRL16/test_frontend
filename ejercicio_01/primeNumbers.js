@@ -9,17 +9,18 @@ const isPrime = (num) => {
 
 // Prime numbers in a specific range
 function getPrimeNumbersBetween(from, to) {
+  primeNumbers = []
   if (Number.isInteger(from) && Number.isInteger(to)) {
     if (to > from) {
       for (let i = from; i <= to; i++) {
-        if (isPrime(i)) console.log(i);
+        if (isPrime(i)){ primeNumbers.push(i)};
       }
     } else {
       getPrimeNumbersBetween(to, from);
     }
   }
+  return primeNumbers
 }
 
-getPrimeNumbersBetween(2, 15);
 
 module.exports = getPrimeNumbersBetween;
