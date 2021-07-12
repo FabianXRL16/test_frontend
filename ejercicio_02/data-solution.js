@@ -36,9 +36,8 @@ let json = {
 };
 
 
-let result = {};
 function getResult () {
-
+  let result = {};
     for (var name in json.data) {
         let key = json.data[name].over_carrier_service_id;
         let value = [values[key].carrier, values[key].service];
