@@ -4,7 +4,7 @@
         <img src="@/assets/logo_marvel.svg" alt="logo marvel" class="h-10 w-auto">
     </div>
     <div class="flex h-10 w-2/3 justify-end">
-        <input-text v-if="ok" class="w-full h-full" />
+        <input-text v-if="ok" :placeholderLarge="'Ejemplo. Capitan América'" :placeholderSmall="'Ej. Iron Man'" class="w-4/5 sm:w-full h-full" />
         <search @ToShowInputSearch="ToShowInput" :text="'Buscar'" class="w-auto z-10" />
     </div>
   </div>
