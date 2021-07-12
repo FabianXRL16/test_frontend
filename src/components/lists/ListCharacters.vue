@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Edit from "../buttons/Edit.vue";
+import Edit from "../buttons/EditFloating.vue";
 import ItemCharacters from "../items/ItemCharacters.vue";
 export default {
   name: "ListCharacters",

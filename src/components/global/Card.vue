@@ -26,18 +26,20 @@
       >
       <div class="flex justify-between pt-4">
         <span class="text-blue-600">13/12/1998</span>
-        <button class="text-white px-4 rounded-full bg-blue-600">
-          Editar
-        </button>
+        <btn :text="'Editar'" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Btn from '../buttons/BtnBase.vue'
 export default {
   name: "Card",
   props: {},
+  components:{
+    Btn
+  },
   computed:{
     isMobile(){
       return window.innerWidth <= 396
