@@ -1,12 +1,20 @@
 <template>
-  <div class="md:grid grid-cols-1 gap-4">
-    <item-characters v-for="(item, i) of items" :key="i" :active="editActive" />
-    <edit-floating v-model="editActive" class="index" />
+  <div class="flex">
+    <div class="md:grid grid-cols-1 gap-4">
+      <item-characters
+        v-for="(item, i) of items"
+        :key="i"
+        :active="editActive"
+      />
+    </div>
+    <div class="flex justify-end">
+      <edit-floating v-model="editActive" class="index" />
+    </div>
   </div>
 </template>
 
 <script>
-import EditFloating from '../buttons/EditFloating.vue';
+import EditFloating from "../buttons/EditFloating.vue";
 import ItemCharacters from "../items/ItemCharacters.vue";
 export default {
   name: "ListCharacters",
@@ -17,7 +25,7 @@ export default {
   data() {
     return {
       items: [2, 2, 3, 4, 5, 5, 6, 1, 6, 7, 3, 8, 8, 8, 9, 9, 9, 6],
-      editActive: false
+      editActive: false,
     };
   },
   props: {},
