@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Btn from '../buttons/BtnBase.vue'
+import Btn from '../buttons/BtnPrimary.vue'
 export default {
   name: "Card",
   props: {

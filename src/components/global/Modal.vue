@@ -25,25 +25,25 @@
       ></textarea>
     </div>
     <div class="flex flex-col gap-y-4">
-      <button
-        class="w-full rounded-full text-white bg-blue-600 font-medium py-2 outline-none hover:shadow-lg hover:bg-blue-700"
-      >
-        Guardar
+      <button>
+          <btn-primary class="w-full py-2 font-medium" :text="'Guardar'" />
       </button>
-      <button
-        @click="closeModal()"
-        class="w-full rounded-full text-white bg-red-600 font-medium py-2 outline-none hover:shadow-lg hover:bg-red-700 "
-      >
-        Cancelar
+      <button @click="closeModal()">
+        <btn-secondary class="w-full py-2 font-medium" :text="'Cancelar'" />
       </button>
     </div>
   </div>
 </template>
 
 <script>
+import BtnPrimary from "../buttons/BtnPrimary.vue";
+import BtnSecondary from "../buttons/BtnSecondary.vue";
 export default {
   name: "Modal",
-  components: {},
+  components: {
+    BtnPrimary,
+    BtnSecondary,
+  },
   methods: {
     closeModal() {
       this.$emit("closedModal", false);

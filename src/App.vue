@@ -6,7 +6,8 @@
       <content-marvel />
     </div>
     <modal v-if="modal" @closedModal="closeModal" />
-    <div v-if="modal" class="h-full w-full bg-current opacity-75 z-30 fixed"></div>
+    <button v-if="modal"  @click="modal=false" class="h-full w-full bg-current opacity-75 z-30 fixed outline-none">
+    </button>
   </div>
 </template>
 
