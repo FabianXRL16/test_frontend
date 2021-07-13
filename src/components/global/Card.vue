@@ -1,8 +1,13 @@
 <template>
   <div
-    class="item bg-gray-200 h-full md:h-56 w-full
-                md:56 md:w-full md:flex block rounded-2xl
-                mb-6 md:mb-0 shadow-md"
+    class="item bg-gray-200 md:h-56 w-full
+             md:56 md:w-full md:flex block rounded-2xl
+             mb-6 md:mb-0 shadow-md"
+    :style="
+      isTablet
+        ? `background-image: url('${hero.thumbnail.path}.${hero.thumbnail.extension}')`
+        : ''
+    "
   >
     <img
       :src="`${hero.thumbnail.path}.${hero.thumbnail.extension}`"
@@ -15,7 +20,7 @@
               pt-14 pb-8 md:p-6 md:rounded-r-2xl w-full"
     >
       <span
-        class="text-gray-900 md:text-gray-700 text-3xl font-semibold mb-4"
+        class="text-gray-900 md:text-gray-700 text-3xl font-semibold mb-4 shadow-light"
         >{{ hero.name }}</span
       >
       <span
@@ -25,7 +30,7 @@
         {{ hero.description }}</span
       >
       <div class="flex justify-between pt-4">
-        <span class="text-blue-600">{{ formt(hero.modified)}}</span>
+        <span class="text-blue-600">{{ formt(hero.modified) }}</span>
         <button v-if="active" @click="closedModal()">
           <btn :text="'Editar'" />
         </button>
@@ -49,19 +54,22 @@ export default {
     isMobile() {
       return window.innerWidth <= 396;
     },
+    isTablet() {
+      return window.innerWidth <= 768;
+    },
   },
   methods: {
     closedModal() {
       this.$emit("closeModal", true);
     },
-    formt(fecha){
-    let fechaN = fecha.replace(/\D/g, " ").split(" ")
-    fechaN.pop()
-    fechaN.pop()
-    fechaN.pop()
-    fechaN.pop()
-    return fechaN.join("-")
-}
+    formt(fecha) {
+      let fechaN = fecha.replace(/\D/g, " ").split(" ");
+      fechaN.pop();
+      fechaN.pop();
+      fechaN.pop();
+      fechaN.pop();
+      return fechaN.join("-");
+    },
   },
 };
 </script>
@@ -72,13 +80,17 @@ export default {
 }
 @media (max-width: 768px) {
   .item {
-    background-image: url("https://depor.com/resizer/0zkaQJz8PXH8P7DubaMv747oKvQ=/1200x1200/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/YRDRN2AWWNATVHH3CPLXR4FUPA.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 1rem;
+    min-height: 300px;
   }
   .item__info {
     border-radius: 1rem;
+    min-height: 300px;
   }
+  .shadow-light {
+  text-shadow: 1px 1px 20px #ffffff;
+}
 }
 </style>

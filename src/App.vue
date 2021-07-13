@@ -56,7 +56,6 @@ export default {
                 modified: hero.modified
               }
               this.data.push(info)
-              console.log(this.data)
             }
           })
         }
