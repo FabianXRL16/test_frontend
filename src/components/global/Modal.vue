@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed p-4 md:px-10 md:py-20 h-auto w-1/3 bg-gray-400 rounded-3xl shadow-xl calc flex flex-col gap-y-8"
+    class="fixed p-4 md:px-10 md:py-20 h-auto md:w-1/3 bg-gray-400 rounded-3xl shadow-xl calc flex flex-col gap-y-8"
   >
     <div class="mx-auto">
       <img
@@ -55,8 +55,10 @@ export default {
 <style scoped>
 .calc {
   position: absolute;
-  left: calc(50% - 5.9rem);
-  top: calc(50% - 6rem);
+  left: calc(100vw - 95%);
+  top: calc(100vh - 90%);
+  width: 90%;
+  z-index: 999;
 }
 .capa {
   height: 100%;
@@ -72,7 +74,7 @@ export default {
   .calc {
     position: absolute;
     height: 85%;
-    left: calc(40% - 5rem);
+    left: calc(100vw - 67%);
     top: 5%;
     z-index: 999;
     box-shadow: 10px 10px 1px rgb(0, 76, 255);
