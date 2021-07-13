@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="w-full bg-gray-800">
-    <header-marvel class="ad" />
+  <div id="app" class="w-full h-full bg-gray-900 md:bg-gray-800">
+    <header-marvel class="index" />
     <div class="cont">
       <div>a</div>
       <content-marvel />
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped>
-.ad{
+.index{
   z-index: 10;
 }
 .cont{

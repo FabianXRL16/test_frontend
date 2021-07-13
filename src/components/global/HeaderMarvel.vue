@@ -1,5 +1,5 @@
 <template>
-  <div class="h-16 w-full fixed bg-gray-800 flex justify-between items-center px-4 sm:px-12 md:px-56 shadow-lg">
+  <div class="h-16 w-full fixed bg-gray-900 md:bg-gray-800 flex justify-between items-center px-4 sm:px-12 md:px-56 shadow-lg">
     <div class="w-auto">
         <img src="@/assets/logo_marvel.svg" alt="logo marvel" class="h-10 w-auto">
     </div>
