@@ -25,7 +25,7 @@
         {{ hero.description }}</span
       >
       <div class="flex justify-between pt-4">
-        <span class="text-blue-600">{{ hero.modified}}</span>
+        <span class="text-blue-600">{{ formt(hero.modified)}}</span>
         <button v-if="active" @click="closedModal()">
           <btn :text="'Editar'" />
         </button>
@@ -54,14 +54,14 @@ export default {
     closedModal() {
       this.$emit("closeModal", true);
     },
-    
-    formatDate(date){
-      let newDate = date.replace(/\D/g, " ").split(" ")
-      newDate.pop()
-      newDate.pop()
-      newDate.pop()
-      newDate.join("-")
-    }
+    formt(fecha){
+    let fechaN = fecha.replace(/\D/g, " ").split(" ")
+    fechaN.pop()
+    fechaN.pop()
+    fechaN.pop()
+    fechaN.pop()
+    return fechaN.join("-")
+}
   },
 };
 </script>
