@@ -56,7 +56,7 @@ export default {
 .calc {
   position: absolute;
   left: calc(100vw - 95%);
-  top: calc(100vh - 90%);
+  top: calc(100vh - 88%);
   width: 90%;
   z-index: 999;
 }
@@ -69,6 +69,14 @@ export default {
   position: absolute;
 }
 @media (min-width: 640px) {
+  .calc {
+    position: absolute;
+    height: 85%;
+    left: calc(100vw - 95%);
+    top: 15%;
+    z-index: 999;
+    box-shadow: 10px 10px 1px rgb(0, 76, 255);
+  }
 }
 @media (min-width: 768px) {
   .calc {
