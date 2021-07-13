@@ -17,6 +17,7 @@
 import HeaderMarvel from "./components/global/HeaderMarvel.vue";
 import ContentMarvel from "./components/global/ContentMarvel.vue";
 import Modal from "@/components/global/Modal.vue";
+import axios from "axios"
 
 export default {
   name: "App",
@@ -39,25 +40,10 @@ export default {
       this.modal = false
     },
     getDataApi(){
-      const marvel = {
-        render: () => {
-          const urlApi = 'https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=0df96bc032ccebae109b9066f3cbbaf6&hash=88fb4e8c1b4dc9216eba3710fac9a37a';
-          fetch(urlApi)
-          .then(res => res.json())
-          .then((json)=>{
-            for(const hero of json.data.results){
-              let info = {
-                name: hero.name,
-                description: hero.description,
-                thumbnail: hero.thumbnail,
-                modified: hero.modified
-              }
-              this.data.push(info)
-            }
-          })
-        }
-      }
-      marvel.render()
+      axios.get('https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=0df96bc032ccebae109b9066f3cbbaf6&hash=88fb4e8c1b4dc9216eba3710fac9a37a').then(response=>{
+        this.data = response.data.data.results
+        console.log(response)
+      })
     }
   },
   mounted(){
