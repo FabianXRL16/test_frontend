@@ -3,9 +3,9 @@
     <header-marvel class="index" />
     <div class="cont">
       <div>a</div>
-      <content-marvel />
+      <content-marvel @closedModal="closeModal" />
     </div>
-    <modal v-if="modal" @closedModal="closeModal" />
+    <modal v-if="modal" @closedModalM="closeModalM" />
     <button v-if="modal"  @click="modal=false" class="h-full w-full bg-current opacity-75 z-30 fixed outline-none">
     </button>
   </div>
@@ -25,13 +25,16 @@ export default {
   },
   data() {
     return {
-      modal: true
+      modal: false
     };
   },
   methods:{
     closeModal(){
+      this.modal = true
+    },
+    closeModalM(){
       this.modal = false
-    }
+    },
   }
 };
 </script>

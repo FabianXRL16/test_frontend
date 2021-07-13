@@ -26,7 +26,9 @@
       >
       <div class="flex justify-between pt-4">
         <span class="text-blue-600">13/12/1998</span>
-        <btn v-if="active" :text="'Editar'" />
+        <button v-if="active" @click="closedModal()">
+          <btn :text="'Editar'" />
+        </button>
       </div>
     </div>
   </div>
@@ -45,6 +47,11 @@ export default {
   computed:{
     isMobile(){
       return window.innerWidth <= 396
+    }
+  },
+  methods:{
+    closedModal(){
+      this.$emit("closeModal",true)
     }
   }
 };

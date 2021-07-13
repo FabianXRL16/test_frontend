@@ -1,6 +1,6 @@
 <template>
   <div>
-    <card :active="active" />
+    <card @closeModal="closeModal()" :active="active" />
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
   props: {
     active: Boolean
   },
+  methods:{
+    closeModal(resp){
+      this.$emit("closeModal",resp)
+    }
+  }
 };
 </script>
 
