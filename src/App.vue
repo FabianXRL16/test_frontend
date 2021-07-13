@@ -28,9 +28,6 @@ export default {
   data() {
     return {
       modal: false,
-      keyPublic: "0df96bc032ccebae109b9066f3cbbaf6",
-      keyPrivate: "787e204c3d3c444e363eeed44f50e4f56755e3a8",
-      keyNew: "1787e204c3d3c444e363eeed44f50e4f56755e3a80df96bc032ccebae109b9066f3cbbaf6",
       data: []
     };
   },
