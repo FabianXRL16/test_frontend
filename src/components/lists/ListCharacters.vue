@@ -8,32 +8,27 @@
       />
     </div>
     <div class="flex justify-end">
-      <edit-floating v-model="editActive" class="index" />
     </div>
   </div>
 </template>
 
 <script>
-import EditFloating from "../buttons/EditFloating.vue";
 import ItemCharacters from "../items/ItemCharacters.vue";
 export default {
   name: "ListCharacters",
   components: {
     ItemCharacters,
-    EditFloating,
+  },
+  props: {
+    editActive: Boolean,
   },
   data() {
     return {
       items: [2, 2, 3, 4, 5, 5, 6, 1, 6, 7, 3, 8, 8, 8, 9, 9, 9, 6],
-      editActive: false,
     };
   },
-  props: {},
 };
 </script>
 
 <style scoped>
-.index {
-  z-index: 10;
-}
 </style>
