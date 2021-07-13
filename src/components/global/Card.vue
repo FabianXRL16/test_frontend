@@ -5,27 +5,27 @@
                 mb-6 md:mb-0 shadow-md"
   >
     <img
-      src="https://depor.com/resizer/0zkaQJz8PXH8P7DubaMv747oKvQ=/1200x1200/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/YRDRN2AWWNATVHH3CPLXR4FUPA.jpg"
+      :src="`${hero.thumbnail.path}.${hero.thumbnail.extension}`"
       class="h-72 md:h-56 md:w-56 w-72 md:rounded-l-2xl hidden md:flex"
-      alt=""
+      :alt="hero.name"
     />
     <div
       class="item__info bg-gradient-to-t from-gray-900 to-transparent md:bg-gradient-to-t md:from-gray-300 md:to-gray-300
               flex flex-col justify-between p-4
-              pt-14 pb-8 md:p-6 md:rounded-r-2xl "
+              pt-14 pb-8 md:p-6 md:rounded-r-2xl w-full"
     >
       <span
         class="text-gray-900 md:text-gray-700 text-3xl font-semibold mb-4"
-        >Capitán América</span
+        >{{ hero.name }}</span
       >
-      <span class="md:text-gray-700 text-gray-300" :class="isMobile ? 'shadow' : ' '">
-        Capitán Américd asd a sd as d asd as dassssssssssss asdas dddddasdasdas
-        asdasdasd a sdasdaa sASas da sd asd as d asd a d as das dasd as da fg df  ht h  dgds fsdgdfg dfg df g dfg df g dfg
-        sdf sd f sdf sd fs df sdfs df sd f sd fsd g df h fg hj fg h dfgh df h s dfg wrtrhtrh rt hrt h rth
-        e gfer gergerg e rg erg ergerger gergergewrgerg ergerge rg</span
+      <span
+        class="md:text-gray-700 text-gray-300"
+        :class="isMobile ? 'shadow' : ' '"
+      >
+        {{ hero.description }}</span
       >
       <div class="flex justify-between pt-4">
-        <span class="text-blue-600">13/12/1998</span>
+        <span class="text-blue-600">{{ hero.modified}}</span>
         <button v-if="active" @click="closedModal()">
           <btn :text="'Editar'" />
         </button>
@@ -35,31 +35,40 @@
 </template>
 
 <script>
-import Btn from '../buttons/BtnPrimary.vue'
+import Btn from "../buttons/BtnPrimary.vue";
 export default {
   name: "Card",
   props: {
-    active: Boolean
+    active: Boolean,
+    hero: Object,
   },
-  components:{
-    Btn
+  components: {
+    Btn,
   },
-  computed:{
-    isMobile(){
-      return window.innerWidth <= 396
+  computed: {
+    isMobile() {
+      return window.innerWidth <= 396;
+    },
+  },
+  methods: {
+    closedModal() {
+      this.$emit("closeModal", true);
+    },
+    
+    formatDate(date){
+      let newDate = date.replace(/\D/g, " ").split(" ")
+      newDate.pop()
+      newDate.pop()
+      newDate.pop()
+      newDate.join("-")
     }
   },
-  methods:{
-    closedModal(){
-      this.$emit("closeModal",true)
-    }
-  }
 };
 </script>
 
 <style scoped>
-.shadow{
-  text-shadow: 1px 1px 10px #1F2937;
+.shadow {
+  text-shadow: 1px 1px 10px #1f2937;
 }
 @media (max-width: 768px) {
   .item {

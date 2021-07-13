@@ -1,6 +1,6 @@
 <template>
   <div>
-    <card @closeModal="closeModal()" :active="active" />
+    <card :hero="hero" @closeModal="closeModal()" :active="active" />
   </div>
 </template>
 
@@ -12,7 +12,8 @@ export default {
     Card,
   },
   props: {
-    active: Boolean
+    active: Boolean,
+    hero: Object,
   },
   methods:{
     closeModal(resp){

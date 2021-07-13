@@ -1,6 +1,6 @@
 <template>
   <div class="px-4 sm:px-12 md:px-56 py-4 sm:py-10 h-screen scroll">
-    <ListCharacters :editActive="editActive"  @closeModal="closeModal()" />
+    <ListCharacters :heros="heros" :editActive="editActive"  @closeModal="closeModal()" />
     <div class="rounded-full fixed z-10" :class="isMobile ? 'pointMobile' : isTable ? 'pointTable' : ' pointDesktop'">
       <edit-floating v-model="editActive" class="index" />
     </div>
@@ -16,7 +16,9 @@ export default {
     ListCharacters,
     EditFloating,
   },
-  props: {},
+  props: {
+    heros: Array
+  },
   data() {
     return {
       editActive: false,

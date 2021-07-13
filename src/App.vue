@@ -3,7 +3,9 @@
     <header-marvel class="index" />
     <div class="cont">
       <div>a</div>
-      <content-marvel @closedModal="closeModal" />
+      <content-marvel :heros="data" @closedModal="closeModal" />
+      <div>
+      </div>
     </div>
     <modal v-if="modal" @closedModalM="closeModalM" />
     <button v-if="modal"  @click="modal=false" class="h-full w-full bg-current opacity-75 z-30 fixed outline-none">
@@ -25,7 +27,11 @@ export default {
   },
   data() {
     return {
-      modal: false
+      modal: false,
+      keyPublic: "0df96bc032ccebae109b9066f3cbbaf6",
+      keyPrivate: "787e204c3d3c444e363eeed44f50e4f56755e3a8",
+      keyNew: "1787e204c3d3c444e363eeed44f50e4f56755e3a80df96bc032ccebae109b9066f3cbbaf6",
+      data: []
     };
   },
   methods:{
@@ -35,6 +41,31 @@ export default {
     closeModalM(){
       this.modal = false
     },
+    getDataApi(){
+      const marvel = {
+        render: () => {
+          const urlApi = 'https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=0df96bc032ccebae109b9066f3cbbaf6&hash=88fb4e8c1b4dc9216eba3710fac9a37a';
+          fetch(urlApi)
+          .then(res => res.json())
+          .then((json)=>{
+            for(const hero of json.data.results){
+              let info = {
+                name: hero.name,
+                description: hero.description,
+                thumbnail: hero.thumbnail,
+                modified: hero.modified
+              }
+              this.data.push(info)
+              console.log(this.data)
+            }
+          })
+        }
+      }
+      marvel.render()
+    }
+  },
+  mounted(){
+    this.getDataApi()
   }
 };
 </script>

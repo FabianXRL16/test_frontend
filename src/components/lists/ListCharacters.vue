@@ -2,8 +2,9 @@
   <div class="flex">
     <div class="md:grid grid-cols-1 gap-4">
       <item-characters
+        :hero="heros[i]"
         @closeModal="closeModal()"
-        v-for="(item, i) of items"
+        v-for="(item, i) of heros"
         :key="i"
         :active="editActive"
       />
@@ -22,6 +23,7 @@ export default {
   },
   props: {
     editActive: Boolean,
+    heros: Array,
   },
   data() {
     return {
